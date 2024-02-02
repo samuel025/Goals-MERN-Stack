@@ -42,9 +42,19 @@ const deleteGoal = asyncHandler(async(req, res) => {
     res.json({ id:req.params.id })
 })
 
+const getSpecificGoal = asyncHandler(async(req, res) => {
+    const goal = await Goal.findById(req.params.id)
+    if(!goal) {
+        res.status(400)
+        throw new Error('Goal not Found')
+    }
+    res.json(goal)
+})
+
 module.exports = {
     getGoals,
     setGoal,
     updateGoals,
-    deleteGoal
+    deleteGoal,
+    getSpecificGoal
 }
