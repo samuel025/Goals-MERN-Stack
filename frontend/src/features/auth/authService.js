@@ -1,5 +1,4 @@
 import axios from 'axios'
-import goalService from '../goals/goalService'
 
 const API_URL = '/api/users/'
 
